@@ -1,13 +1,112 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    background: #030303;
+    color: #F4F6F6;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+footer {
+    display: flex;
+    justify-content: center;
+    font: 400 18px Roboto, sans-serif;
+    color: #333232;
+}
+
+input, button {
+    font: 400 18px Roboto, sans-serif;
+}
+
+h1 {
+    font: 500 18px Roboto, sans-serif;
+}
+
+button {
+    width: 100%;
+    height: 60px;
+    cursor: pointer;
+    color: #F4F6F6;
+    background: #E59866;
+    border: 1px solid #E59866;
+    border-radius: 8px;
+    padding: 16px 24px;
+    line-height: 24px;
+}
+
+form input {
+    width: 100%;
+    height: 60px;
+    color: #898785;
+    border: 1px solid #333232 ;
+    border-radius: 8px;
+    padding: 16px 24px;
+    line-height: 24px;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.container .query-content {
+    width: 100%;
+    padding-left: 96px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .return-content {
+    width: 100%;
+    padding-right: 96px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.container .query-content section {
+    width: 100%;
+    padding-right: 50px;
+}
+
+.container .query-content section p {
+    font: 400 20px Roboto, sans-serif;
+    text-align: center;
+}
+
+.container .query-content section h1 {
+    font: 500 32px Roboto, sans-serif;
+    color: #E59866;
+    text-align: center;
+}
+
+.container .query-content form input, button { 
+    margin-top: 6px;
+}
+
+.container .return-content h1 {
+    font: 500 32px Roboto, sans-serif;
+    color: #E59866;
+    text-align: center;
+    width: 100%;
+}
+
+.container .return-content p {
+    font: 400 20px Roboto, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
 }

@@ -1,24 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import './index.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="container">
+        <div className="query-content">
+          <section>
+            <h1> Query Temperature </h1>
+            <p>Digite sua latitude e longitude para obter a temperatura</p>
+          </section>
+
+          <form>
+            <input placeholder="Latitude" />
+            <input placeholder="Longitude"/>
+
+            <button type="submit">Pesquisar</button>
+          </form>
+        </div>
+        <div className="return-content">
+          <h1>Result</h1> 
+          <p>Value</p>
+        </div>
+      </div>
+      <footer>Caroline, 2020.</footer>
     </div>
   );
 }
