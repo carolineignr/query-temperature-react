@@ -6,27 +6,25 @@ function App() {
 
   const axios = require('axios');
 
-  const [temp, setTemp] = useState([]);
-
-  const lat = -28.6775;
-  const lon = -49.36972;
+  const [temp, setTemp] = useState('');
+  const [lat, setLat] = useState('');
+  const [lon, setLon] = useState('');
 
   const params = {
     access_key: '1ff57548e829e7d039e72e93bd303898',
     query: `${lat},${lon}`
   }
 
-  useEffect(() => {
+  function handleTemperature() {
 
-    axios.get('http://api.weatherstack.com/current', {params})
-    .then(response => {
-      console.log(response.data)
-      setTemp(response.data.current.temperature);
-    }).catch(error => {
-      console.log(error);
-    });
-
-  }, []);
+      axios.get('http://api.weatherstack.com/current', {params})
+      .then(response => {
+        setTemp(response.data.current.temperature);
+      }).catch(error => {
+        console.log(error);
+      });
+  
+  }
 
 
   return (
@@ -39,10 +37,18 @@ function App() {
           </section>
 
           <form>
-            <input placeholder="Latitude" />
-            <input placeholder="Longitude"/>
+            <input 
+              placeholder="Latitude"
+              value={lat}
+              onChange={(e) => setLat(e.target.value)}
+            />
+            <input 
+              placeholder="Longitude"
+              value={lon}
+              onChange={(e) => setLon(e.target.value)}
+            />
 
-            <button type="submit">Pesquisar</button>
+            <button onClick={() => handleTemperature} type="submit">Pesquisar</button>
           </form>
         </div>
         <div className="return-content">
