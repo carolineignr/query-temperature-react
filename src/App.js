@@ -7,23 +7,25 @@ function App() {
   const axios = require('axios');
 
   const [temp, setTemp] = useState('');
-  const [lat, setLat] = useState('');
-  const [lon, setLon] = useState('');
+  const [lat, setLat] = useState('45.323');
+  const [lon, setLon] = useState('65.342');
 
   const params = {
     access_key: '1ff57548e829e7d039e72e93bd303898',
     query: `${lat},${lon}`
   }
 
-  function handleTemperature() {
 
-      axios.get('http://api.weatherstack.com/current', {params})
+  async function updateTemperature(e) {
+    e.preventDefault(); 
+    e.target.reset();
+    
+    axios.get('http://api.weatherstack.com/current', {params})
       .then(response => {
-        setTemp(response.data.current.temperature);
+        setTemp(response.data.current.temperature)
       }).catch(error => {
         console.log(error);
-      });
-  
+      })
   }
 
 
@@ -36,24 +38,24 @@ function App() {
             <p>Digite sua latitude e longitude para obter a temperatura</p>
           </section>
 
-          <form>
+          <form onSubmit={(e) => updateTemperature(e)}>
             <input 
+              onChange={e => setLat(e.target.value)}
+              type="text"
               placeholder="Latitude"
-              value={lat}
-              onChange={(e) => setLat(e.target.value)}
             />
             <input 
               placeholder="Longitude"
-              value={lon}
-              onChange={(e) => setLon(e.target.value)}
+              onChange={e => setLon(e.target.value)}
+              type="text"
             />
 
-            <button onClick={() => handleTemperature} type="submit">Pesquisar</button>
+            <button type="submit">Pesquisar</button>
           </form>
         </div>
         <div className="return-content">
-          <h1>Result</h1>
-          <p>{temp}</p>
+          <h1>Temperatura</h1>
+          <p>{`${temp}°C`}</p>
         </div>
       </div>
       <footer>Caroline, 2020.</footer>
